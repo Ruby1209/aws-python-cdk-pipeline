@@ -17,10 +17,10 @@ class AwsPythonPipelineStack(Stack):
                             action_name="CDK_GitHub_Source",
                             owner="Ruby1209",
                             repo="aws-python-cdk-pipeline",
-                            oauth_token=SecretValue.secrets_manager("git_pip_token"),
+                            oauth_token=SecretValue.secrets_manager("GitHubToken"),
                             branch="master",
                             output=cdk_source_output,
-                            trigger = aws_codepipeline_actions.GitHubTrigger.POLL
+                            trigger = aws_codepipeline_actions.GitHubTrigger.WEBHOOK
             )
         pipeline.add_stage(
                         stage_name="Source",
