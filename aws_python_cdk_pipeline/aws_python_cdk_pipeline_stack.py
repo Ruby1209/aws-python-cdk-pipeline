@@ -17,7 +17,7 @@ class AwsPythonCdkPipelineStack(Stack):
                             action_name="CDK_GitHub_Source",
                             owner="Ruby1209",
                             repo="aws-python-cdk-pipeline",
-                            oauth_token=SecretValue.secrets_manager("github_access_token"),
+                            oauth_token=SecretValue.secrets_manager("github_code_pipeline_token"),
                             output=cdk_source_output,
                             branch="master"
             )
