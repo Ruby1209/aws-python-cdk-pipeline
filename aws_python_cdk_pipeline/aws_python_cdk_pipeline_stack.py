@@ -28,7 +28,7 @@ class AwsPythonPipelineStack(Stack):
             )
         project = aws_codebuild.PipelineProject(self, "AWSPythonPipelineProject",
                             build_spec = aws_codebuild.BuildSpec.from_source_filename(
-                                 "build-specs/cdk_buildspec.yml"
+                                 "build-specs/buildspec.yml"
                         )
             )
         cdk_build_output = aws_codepipeline.Artifact()
