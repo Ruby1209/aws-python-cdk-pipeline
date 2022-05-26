@@ -15,8 +15,8 @@ phases:
   build:
     commands:
       - echo  build phase starts
-      - cdk bootstrap
-      - cdk synth
+      ##- cdk bootstrap
+      - cdk -- synth
       - echo build phase ends
   post_build:
     commands:
