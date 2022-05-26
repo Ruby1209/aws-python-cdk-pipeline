@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-version:
+      python: 3.7
+  pre_build:
+    commands:
+      - echo  installing pre-requisites for build
+      - python -m ensurepip --upgrade
+      - pip install --upgrade pip
+      - pip install --upgrade virtualenv
+      - pip install -r requirements.txt
+      - echo  pre_build phase end
+  build:
+    commands:
+      - echo  build phase starts
+      - cdk bootstrap
+      - cdk synth
+      - echo build phase ends
+  post_build:
+    commands:
+      - echo no instructions for post build
+
+artifacts:
+  base-directory: cdk.out
+  files:
+    - '**/*'
